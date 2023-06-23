@@ -6,6 +6,7 @@ import {
   Typography,
 } from "@mui/material";
 import { ReactNode } from "react";
+import DocumentUploader from "./DocumentUploader";
 import contractSvg from "./imgs/contracts.svg";
 import forcast from "./imgs/forcast.svg";
 import helpdesk from "./imgs/helpdesk.svg";
@@ -30,6 +31,11 @@ const HomeScreen = () => {
       fontFamily: "Aria, sans-serif",
       lineHeight: "24px",
       marginTop: "1rem",
+    },
+    h3: {
+      color: "#2A2A2A",
+      fontFamily: "Aria, sans-serif",
+      lineHeight: "20px",
     },
   };
 
@@ -167,6 +173,13 @@ const HomeScreen = () => {
           </SkillCard>
         </Grid>
       </Grid>
+      <Typography variant="h6" sx={{ ...styles.h3, marginTop: "2rem" }}>
+        OR,
+      </Typography>
+      <Typography variant="h5" sx={{ ...styles.p, marginTop: "2rem" }}>
+        Try Document Uploader
+      </Typography>
+      <DocumentUploader />
     </Container>
   );
 };

@@ -1,0 +1,103 @@
+[
+  {
+    "id": 1,
+    "messages": [
+      {
+        "id": 1,
+        "sender": "user",
+        "content": "Hello, how can I help you?",
+        "createdOn": "2021-09-01T12:00:00.000Z",
+        "lastModified": "2021-09-01T12:00:00.000Z"
+      },
+      {
+        "id": 2,
+        "sender": "assistant",
+        "content": "Sure, I can assist you. What specific information do you need?",
+        "createdOn": "2022-09-01T12:00:00.000Z",
+        "lastModified": "2022-09-01T12:00:00.000Z"
+      },
+      {
+        "id": 3,
+        "sender": "user",
+        "content": "I'm looking for information on product pricing and availability.",
+        "createdOn": "2021-09-01T12:00:00.000Z",
+        "lastModified": "2021-09-01T12:00:00.000Z"
+      },
+      {
+        "id": 4,
+        "sender": "assistant",
+        "content": "Great! Our products are priced competitively and available in various sizes and colors. Could you please specify the product you're interested in?",
+        "createdOn": "2021-09-01T12:00:00.000Z",
+        "lastModified": "2021-09-01T12:00:00.000Z"
+      },
+      {
+        "id": 5,
+        "sender": "user",
+        "content": "I'm looking for a blue t-shirt.",
+        "createdOn": "2021-09-01T12:00:00.000Z",
+        "lastModified": "2023-09-01T12:00:00.000Z"
+      },
+      {
+        "id": 6,
+        "sender": "assistant",
+        "content": "Sure, we have a wide selection of blue t-shirts. What size are you looking for?",
+        "createdOn": "2023-09-01T12:00:00.000Z",
+        "lastModified": "2021-09-01T12:00:00.000Z"
+      },
+      {
+        "id": 7,
+        "sender": "user",
+        "content": "I'm looking for a medium.",
+        "createdOn": "2023-01-01T12:00:00.000Z",
+        "lastModified": "2023-02-01T12:00:00.000Z"
+      },
+      {
+        "id": 8,
+        "sender": "assistant",
+        "content": "Great! We have a wide selection of medium blue t-shirts. What shade of blue are you looking for?",
+        "createdOn": "2022-09-01T12:00:00.000Z",
+        "lastModified": "2021-10-01T12:00:00.000Z"
+      },
+      {
+        "id": 9,
+        "sender": "user",
+        "content": "I'm looking for a dark blue.",
+        "createdOn": "2021-09-01T12:00:00.000Z",
+        "lastModified": "2021-09-01T12:00:00.000Z"
+      },
+      {
+        "id": 10,
+        "sender": "assistant",
+        "content": "Great! We have a wide selection of dark blue t-shirts. What shade of blue are you looking for?",
+        "createdOn": "2023-09-01T12:00:00.000Z",
+        "lastModified": "2023-12-01T12:00:00.000Z"
+      },
+      {
+        "id": 11,
+        "sender": "user",
+        "content": "I'm looking for a dark blue.",
+        "createdOn": "2021-08-01T12:00:00.000Z",
+        "lastModified": "2021-08-01T12:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "messages": [
+      {
+        "id": 1,
+        "sender": "user",
+        "content": "Can you summarize the partnership between openAi and Microsoft for me in 10 bullets points?",
+        "createdOn": "2010-09-01T12:00:00.000Z",
+        "lastModified": "2021-09-01T12:00:00.000Z"
+      },
+      {
+        "id": 2,
+        "sender": "assistant",
+        "content": "Certainly! Here's a summary of the partnership between OpenAI and Microsoft in 10 bullet points:\n\n- OpenAI and Microsoft announced a strategic partnership in 2019.\n- Microsoft invested $1 billion in OpenAI as part of the collaboration.\n- The partnership aims to accelerate the development and availability of artificial general intelligence (AGI).\n- OpenAI committed to using Microsoft Azure as its preferred cloud platform for AGI development.\n- Microsoft will become OpenAI's exclusive cloud provider, supporting its AI workloads.\n- The two companies collaborate on large-scale AI projects and share research and development resources.\n- OpenAI gains access to Microsoft's expertise in areas like Azure's supercomputing capabilities.\n- The collaboration helps OpenAI scale its AI models and technologies for broader applications.\n- OpenAI and Microsoft are committed to ensuring AGI is developed and deployed safely and ethically.\n- The partnership combines OpenAI's cutting-edge research with Microsoft's technological infrastructure to advance the field of AI.",
+        "createdOn": "2021-09-01T12:00:00.000Z",
+        "lastModified": "2021-09-01T12:00:00.000Z"
+      }
+    ]
+  }
+]

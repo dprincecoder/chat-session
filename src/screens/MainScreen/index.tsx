@@ -4,16 +4,10 @@ import { Navbar, Sidebar } from "../../components";
 import ChatSession from "../ChatSession";
 import ChatsSession from "../ChatsSession";
 import HomeScreen from "./HomeScreen";
-
-const MainScreen: React.FC = () => {
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      // Perform file upload logic here
-      console.log("File uploaded:", file);
-    }
-  };
-
+interface MainScreenProps {
+  children?: React.ReactNode;
+}
+const MainScreen: React.FC = ({ children }: MainScreenProps) => {
   function componentToRender() {
     switch (location.pathname) {
       case "/main":
@@ -49,9 +43,9 @@ const MainScreen: React.FC = () => {
         <Sidebar />
 
         {/* Main content */}
-        <Container>
+        <Container sx={{ overflow: "auto", height: "calc(100vh - 64px)" }}>
           {/* Dynamic content goes here */}
-          {componentToRender()}
+          {children ? children : componentToRender()}
         </Container>
       </Box>
     </Box>

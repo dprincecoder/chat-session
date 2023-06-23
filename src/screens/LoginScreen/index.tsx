@@ -180,7 +180,7 @@ const LoginScreen: React.FC = () => {
               fullWidth
               sx={{ borderRadius: "10px" }}
             >
-              SSO Login
+              LOGIN WITH SINGLE SIGN ON
             </Button>
             <Typography sx={{ marginTop: "3rem" }} align="center">
               No account yet? Create one
