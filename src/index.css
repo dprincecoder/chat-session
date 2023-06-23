@@ -1,0 +1,80 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.isDisabled {
+  opacity: 0.3;
+  cursor: not-allowed !important;
+  color: rgb(33, 33, 33);
+  border: 1px solid rgb(33, 33, 33);
+}
+
+div::-webkit-scrollbar {
+  width: 8px;
+}
+div::-webkit-scrollbar-thumb {
+  background-color: #dbd7d7;
+}
+
+.animation-bounce {
+  animation: bounce 0.5s ease-in-out;
+  -webkit-animation: bounce 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.selected {
+  /*background: #037fff !important;
+  */color: white !important;
+  border: 2px solid #037fff;
+  animation: bounceSelected 1s ease-in infinite;
+  -webkit-animation: bounceSelected 1s ease-in infinite;
+  transition: all ease-in-out;
+  -webkit-transition: all ease-in-out;
+  -moz-transition: all ease-in-out;
+  -ms-transition: all ease-in-out;
+  -o-transition: all ease-in-out;
+}
+
+@keyframes bounceSelected {
+    0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+.verticalHR {
+  width: 2px;
+  height: 10px;
+  background: #919090;
+  margin: 0 5px;
+}

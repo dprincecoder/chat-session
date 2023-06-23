@@ -1,0 +1,21 @@
+node_modules
+node_modules
+
+# .env file
+.env
+
+# Logs
+logs
+
+# Build results
+dist
+build
+
+# Dependencies
+package-lock.json
+yarn.lock
+```
+
+## License
+
+MIT
