@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Dialogue } from "../../../configs";
-import "./ChatSessionTable.css";
+import { Dialogue } from "../../configs";
+import "./CommonTable.css";
 import arrUpdown from "./imgs/arrUpDown.svg";
 import createdOn from "./imgs/createdOn.svg";
 
-interface ChatSessionTableProps {
+interface CommonTableProps {
   tableData: Dialogue[];
   page: number;
   rowsPerPage: number;
+  searchKeyword: string;
 }
 
-const ChatSessionTable: React.FC<ChatSessionTableProps> = ({
+const CommonTable: React.FC<CommonTableProps> = ({
   tableData,
   page,
   rowsPerPage,
+  searchKeyword,
 }) => {
   const [orderBy, setOrderBy] = useState("chatSummary");
   const [order, setOrder] = useState<"asc" | "desc">("asc");
@@ -38,6 +40,15 @@ const ChatSessionTable: React.FC<ChatSessionTableProps> = ({
     };
     return new Date(date).toLocaleString("en-US", options);
   };
+
+  const filteredData = () => {
+    return tableData.filter((dialogue) => {
+      return dialogue.messages[dialogue.messages.length - 1].content
+        .toLowerCase()
+        .includes(searchKeyword.toLowerCase());
+    });
+  };
+
   const sortedData = [...tableData].sort((a, b) => {
     const aValue = new Date(a.messages[a.messages.length - 1].lastModified);
     const bValue = new Date(b.messages[b.messages.length - 1].lastModified);
@@ -46,7 +57,6 @@ const ChatSessionTable: React.FC<ChatSessionTableProps> = ({
     if (aValue > bValue) return order === "asc" ? 1 : -1;
     return 0;
   });
-
   return (
     <div className="chat-table">
       <div className="table-header">
@@ -75,6 +85,13 @@ const ChatSessionTable: React.FC<ChatSessionTableProps> = ({
       <div className="overFlowdiv">
         <div className="table-body">
           {sortedData
+            .filter((dialogue) =>
+              dialogue.messages.some((message) =>
+                message.content
+                  .toLowerCase()
+                  .includes(searchKeyword.toLowerCase())
+              )
+            )
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map((dialogue, index) => {
               const recentMessage =
@@ -105,4 +122,4 @@ const ChatSessionTable: React.FC<ChatSessionTableProps> = ({
   );
 };
 
-export default ChatSessionTable;
+export default CommonTable;

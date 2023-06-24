@@ -1,18 +1,18 @@
-import React from "react";
 import {
-  AppBar,
-  Toolbar,
-  Typography,
-  IconButton,
-  InputBase,
-  Avatar,
-} from "@mui/material";
-import {
+  HelpOutline as HelpOutlineIcon,
   Search as SearchIcon,
   Settings as SettingsIcon,
-  HelpOutline as HelpOutlineIcon,
 } from "@mui/icons-material";
-
+import {
+  AppBar,
+  Avatar,
+  IconButton,
+  InputBase,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import React from "react";
+import dummyAvtar from "./avatar.svg";
 const Navbar: React.FC = () => {
   return (
     <AppBar
@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
           <IconButton size="large" color="inherit">
             <HelpOutlineIcon />
           </IconButton>
-          <Avatar alt="User Avatar" src="/path/to/avatar.jpg" />
+          <Avatar alt="User Avatar" src={dummyAvtar} />
         </div>
       </Toolbar>
     </AppBar>

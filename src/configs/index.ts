@@ -12,8 +12,8 @@ export interface chatType {
 
 export interface MessageType {
   id: number;
-  sender: string;
   content: string;
+  sender: string;
   createdOn: string;
   lastModified: string;
 }

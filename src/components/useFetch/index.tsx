@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 interface FetchResult<T> {
   data: T[];
   isLoading: boolean;
-  addData: (newData: T) => void;
 }
 
 const useFetch = <T,>(url: string): FetchResult<T> => {
@@ -26,11 +25,7 @@ const useFetch = <T,>(url: string): FetchResult<T> => {
     fetchData();
   }, [url]);
 
-  const addData = (newData: T) => {
-    setData((prevData) => [...prevData, newData]);
-  };
-
-  return { data, isLoading, addData };
+  return { data, isLoading };
 };
 
 export default useFetch;

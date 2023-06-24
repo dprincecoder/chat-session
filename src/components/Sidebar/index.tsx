@@ -5,6 +5,7 @@ import {
 } from "@mui/icons-material";
 import {
   Box,
+  Button,
   List,
   ListItem,
   ListItemIcon,
@@ -12,12 +13,15 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useChat from "../useChat";
 import BarChartIcon from "./imgs/analytics.svg";
 import ChatIcon from "./imgs/chat.svg";
 
 const Sidebar: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { addNewDialogue, chatData } = useChat();
 
   const sidebarItems = [
     {
@@ -41,7 +45,11 @@ const Sidebar: React.FC = () => {
       icon: <SettingsIcon />,
     },
   ];
-
+  const handleNewChat = () => {
+    let messages: any = [];
+    addNewDialogue(messages);
+    navigate(`/chat-sessions/${chatData.length + 1}`);
+  };
   return (
     <Box
       sx={{
@@ -88,7 +96,29 @@ const Sidebar: React.FC = () => {
           ))}
         </List>
       </Box>
-      <Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "8px",
+          padding: "16px 0",
+        }}
+      >
+        {window.location.pathname !== "/main" && (
+          <Button
+            variant="contained"
+            sx={{
+              background: "#4282fe",
+              color: "#FFF",
+              borderRadius: "25px",
+              width: "100%",
+            }}
+            onClick={handleNewChat}
+          >
+            New Chat
+          </Button>
+        )}
         <Typography
           variant="body2"
           align="center"

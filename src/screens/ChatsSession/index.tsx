@@ -9,18 +9,18 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import useFetch from "../../components/useFetch";
-import { Dialogue } from "../../configs";
-import ChatSessionTable from "./table";
+import { useNavigate } from "react-router-dom";
+import CommonTable from "../../components/CommonTable";
+import useChat from "../../components/useChat";
 
 const ChatsSession: React.FC = () => {
   const [order, setOrder] = useState<"asc" | "desc">("asc");
   const [orderBy, setOrderBy] = useState<string>("");
   const [page, setPage] = useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = useState<number>(10);
-  const { data, isLoading, addData } = useFetch<Dialogue>("/mockup.json");
-  console.log(data);
-
+  const { chatData, addNewDialogue, isLoading } = useChat();
+  const [search, setSearch] = useState<string>("");
+  const navigate = useNavigate();
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -43,6 +43,13 @@ const ChatsSession: React.FC = () => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
+
+  const handleNewChat = () => {
+    let messages: any = [];
+    addNewDialogue(messages);
+    navigate(`/chat-sessions/${chatData.length + 1}`);
+  };
+
   return (
     <Container
       sx={{
@@ -81,6 +88,7 @@ const ChatsSession: React.FC = () => {
             color: "#FFF",
             borderRadius: "25px",
           }}
+          onClick={handleNewChat}
         >
           New Chat
         </Button>
@@ -103,6 +111,8 @@ const ChatsSession: React.FC = () => {
           placeholder="Search"
           sx={{ ml: "8px", width: "160px" }}
           inputProps={{ "aria-label": "search" }}
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
         />
         <IconButton size="small" color="inherit" sx={{ p: "8px" }}>
           <SearchIcon
@@ -113,17 +123,18 @@ const ChatsSession: React.FC = () => {
         </IconButton>
       </div>
       <Box>
-        <ChatSessionTable
-          tableData={data}
+        <CommonTable
+          tableData={chatData}
           page={page}
           rowsPerPage={rowsPerPage}
+          searchKeyword={search}
         />
       </Box>
 
       <TablePagination
         component="div"
         rowsPerPageOptions={[5, 10, 25]}
-        count={data.length}
+        count={chatData.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
