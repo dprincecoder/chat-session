@@ -1,19 +1,26 @@
 import { ArrowBack } from "@mui/icons-material";
 import { Box, Container, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import useChat from "../../components/useChat";
+import { Dialogue } from "../../configs";
 import ChatInput from "./ChatInput";
 
 const ChatsSession: React.FC = () => {
-  const { chatData, isLoading } = useChat();
+  const { chatData } = useChat();
   const { id } = useParams<{ id: string }>();
+  const [conversation, setConversation] = useState<Dialogue | undefined>(
+    chatData.find((item) => item.id === Number(id))
+  );
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+  // if (isLoading) {
+  //   return <p>Loading...</p>;
+  // }
 
-  const conversation = chatData.find((item) => item.id === Number(id));
+  useEffect(() => {
+    setConversation(chatData.find((item) => item.id === Number(id)));
+    console.log("refetched");
+  }, [chatData]);
 
   return (
     <Container

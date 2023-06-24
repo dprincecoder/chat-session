@@ -30,7 +30,7 @@ const ChatInput: React.FC = () => {
   const navigate = useNavigate();
   const [toggleBox, setToggleBox] = useState<boolean>(true);
   const [openModal, setOpenModal] = useState(false);
-  const { chatData, sendContinuousConversation, isLoading } = useChat();
+  const { chatData, sendContinuousConversation, addNewDialogue } = useChat();
   const { id } = useParams<{ id: string }>();
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -87,15 +87,7 @@ const ChatInput: React.FC = () => {
   const handleSubmit = () => {
     if (userText) {
       const newMessage = {
-        id: chatData.length + 1,
         content: userText,
-        sender: "user",
-        createdOn: new Date().toISOString(),
-        lastModified: new Date().toISOString(),
-      };
-      const newDialogue = {
-        id: chatData.length + 1,
-        messages: [newMessage],
       };
       sendContinuousConversation(newMessage);
     }
@@ -109,7 +101,6 @@ const ChatInput: React.FC = () => {
     setToggleBox(!toggleBox);
   };
   const conversation = chatData.find((item) => item.id === Number(id));
-  console.log(conversation);
 
   return (
     <Container sx={{ margin: "1rem 0 0 0" }}>

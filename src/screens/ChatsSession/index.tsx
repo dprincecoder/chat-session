@@ -12,18 +12,19 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CommonTable from "../../components/CommonTable";
 import useChat from "../../components/useChat";
+import { MessageType } from "../../configs";
 
 const ChatsSession: React.FC = () => {
   const [order, setOrder] = useState<"asc" | "desc">("asc");
   const [orderBy, setOrderBy] = useState<string>("");
   const [page, setPage] = useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = useState<number>(10);
-  const { chatData, addNewDialogue, isLoading } = useChat();
+  const { chatData, addNewDialogue } = useChat();
   const [search, setSearch] = useState<string>("");
   const navigate = useNavigate();
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+  // if (isLoading) {
+  //   return <p>Loading...</p>;
+  // }
   const handleSort = (property: string) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -45,7 +46,15 @@ const ChatsSession: React.FC = () => {
   };
 
   const handleNewChat = () => {
-    let messages: any = [];
+    let messages: MessageType[] = [
+      {
+        id: 1,
+        content: "",
+        sender: "",
+        createdOn: new Date().toISOString(),
+        lastModified: new Date().toISOString(),
+      },
+    ];
     addNewDialogue(messages);
     navigate(`/chat-sessions/${chatData.length + 1}`);
   };
